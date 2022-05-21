@@ -1,1 +1,1 @@
-<div><%= list.title %></div>
+<div><%= action_name == 'index' ? link_to(list.title, list_path(list.id)) : list.title %></div>
