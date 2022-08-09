@@ -1,0 +1,10 @@
+<h1>Widgets</h1>
+<div><%= link_to 'Widget 1 (Turbo Drive enabled)', '/widgets/1' %></div><br>
+<div><%= link_to 'Widget 1 (Turbo Drive disabled)', '/widgets/1', 'data-turbo': false %></div>
+<script>
+  document.addEventListener('turbo:before-render', async (event) => {
+    event.preventDefault()
+
+    event.detail.resume()
+  })
+</script>
