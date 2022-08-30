@@ -1,6 +1,9 @@
 <h1>Widgets</h1>
-<div><%= link_to 'Widget 1 (Turbo Drive enabled)', '/widgets/1' %></div><br>
-<div><%= link_to 'Widget 1 (Turbo Drive disabled)', '/widgets/1', 'data-turbo': false %></div>
+<ul>
+  <% @widgets.each do |widget| %>
+    <li>Widget <%= widget.id %></li>
+  <% end %>
+</ul>
 <script>
   document.addEventListener('turbo:before-render', async (event) => {
     event.preventDefault()

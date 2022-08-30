@@ -1,5 +1,15 @@
-<%= form_with(model: list) do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <%= form.submit %>
+<%= turbo_frame_tag 'list_form' do %>
+  <%= form_with(model: list, id: dom_id(list)) do |form| %>
+    <div id="notice"><%= notice %></div>
+    <% if list.errors.any? %>
+      <div id="error_explanation">foo</div>
+    <% end %>
+    <div>
+      <%= form.label :title %>
+    </div>
+    <div>
+      <%= form.text_field :title %>
+    </div>
+    <%= form.submit %>
+  <% end %>
 <% end %>

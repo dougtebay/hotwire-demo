@@ -1,0 +1,35 @@
+<h1>Turbo Drive</h1>
+
+<section>
+  <h2>Links</h2>
+
+  <div>
+    <h3>Without Drive</h3>
+    <a href="/link" data-turbo="false">Link to content</a>
+  </div><br>
+
+  <div>
+    <h3>With Drive</h3>
+    <a href="/link">Link to content</a>
+  </div>
+</section>
+
+<section>
+  <h2>Forms</h2>
+
+  <h3>Without Drive</h3>
+  <form action="/create" method="post" data-turbo="false">
+    <input type="submit" value="Submit">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      id="authenticity_token"
+      value="<%= form_authenticity_token %>"
+    >
+  </form><br>
+
+  <h3>With Drive</h3>
+  <form action="/create" method="post">
+    <input type="submit" value="Submit">
+  </form>
+</section>

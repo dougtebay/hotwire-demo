@@ -1,0 +1,77 @@
+<h1>Turbo Frames</h1>
+
+<section>
+  <h2>Links</h2>
+
+  <h3>Not in a Frame</h3>
+  <a href="/link-not-in-a-frame">Link to content</a><br><br>
+
+  <h3>In a Frame</h3>
+  <turbo-frame id="link_in_a_frame" class="frame">
+      <a href="/link-in-a-frame">Link to content</a>
+  </turbo-frame><br>
+
+  <h3>In-Frame Navigation Treated as a Visit</h3>
+  <turbo-frame id="link_in_a_frame" class="frame" data-turbo-action="advance">
+      <a href="/link-in-a-frame">Link to content</a>
+  </turbo-frame><br>
+
+  <h3>Frame Targeting a Different Frame</h3>
+  <turbo-frame id="target_frame_for_link" class="frame">Original content</turbo-frame><br>
+
+  <turbo-frame class="frame" target="target_frame_for_link">
+    <a href="/link-targeting-a-different-frame">Link to content</a>
+  </turbo-frame><br>
+
+  <h3>Non-Frame Targeting a Frame</h3>
+  <a
+    href="/link-targeting-a-different-frame"
+    data-turbo-frame="target_frame_for_link"
+  >Link to content</a>
+</section>
+
+<section>
+  <h2>Forms</h2>
+
+  <turbo-frame id="counter" class="frame">Counter: <%= @count %></turbo-frame><br>
+
+  <h3>Not in a Frame</h3>
+  <form action="/increment-count" method="post">
+    <input type="submit" value="Increment">
+  </form><br>
+
+  <turbo-frame id="form_in_a_frame">
+    <div class="frame" style="border-color:<%= random_color %>;">
+      <h3>In a Frame</h3>
+      <form action="/increment-count" method="post">
+        <input type="submit" value="Increment">
+      </form>
+    </div>
+  </turbo-frame><br>
+
+  <turbo-frame class="frame" target="counter">
+    <h3>Frame Targeting a Different Frame</h3>
+    <form action="/increment-count" method="post">
+      <input type="submit" value="Increment">
+    </form>
+  </turbo-frame>
+</section>
+
+<section>
+  <h2>Eager Loading Frames</h2>
+  <turbo-frame id="eager_loaded_frame" src="/eager-loaded-frame">
+    <%= render 'spinner', content: 'Loading ...' %>
+  </turbo-frame>
+</section>
+
+<section data-controller="widgets">
+  <h2>Lazy Loading Frames</h2>
+  <div class="todo-accordion" data-action="click->widgets#bar" data-widgets-target="output"></div>
+    <div style="width:100%; background-color:#475569;" id="bar" class="foo-height">
+    <div id="foo" class="foo">
+      <turbo-frame id="eager_loaded_frame" src="/eager-loaded-frame" loading="lazy">
+        <%= render 'spinner', content: 'Loading ...' %>
+      </turbo-frame>
+    </div>
+  </div>
+</section>

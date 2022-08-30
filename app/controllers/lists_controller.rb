@@ -2,8 +2,8 @@ class ListsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @list = List.new
     @lists = current_user.lists
+    @list = List.new
   end
 
   def show
@@ -11,10 +11,17 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = current_user.lists.new(list_params)
+    @list = List.new(list_params)
 
-    if @list.save
-      redirect_to '/lists'
+    respond_to do |format|
+      if @list.save
+        current_user.lists << @list
+        @lists = current_user.lists
+        @list = List.new
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('list_form', partial: 'lists/form', locals: { list: @list, notice: 'Success' }) }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('list_form', partial: 'lists/form', locals: { list: @list }) }
+      end
     end
   end
 

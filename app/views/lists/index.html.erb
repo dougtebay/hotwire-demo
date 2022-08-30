@@ -1,4 +1,8 @@
 <h1>Lists</h1>
-<%= render 'form', list: @list %>
+<%= turbo_stream_from 'lists' %>
 
-<%= render @lists %>
+<%= render('lists/form', list: @list) %>
+
+<%= turbo_frame_tag "lists" do %>
+  <%= render @lists %>
+<% end %>
