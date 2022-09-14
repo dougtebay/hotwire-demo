@@ -1,0 +1,46 @@
+<h1>Turbo Streams</h1>
+
+<section>
+  <h2>Actions</h2>
+
+  <h3>With a Single Target</h3>
+  <div id="target" class="frame">Some content</div>
+
+  <form action="/target_action" method="post">
+    <select name="target_action">
+      <option value="" disabled selected>Select</option>
+      <option value="append">Append</option>
+      <option value="prepend">Prepend</option>
+      <option value="replace">Replace</option>
+      <option value="update">Update</option>
+      <option value="remove">Remove</option>
+      <option value="before">Before</option>
+      <option value="after">After</option>
+    </select>
+    <input type="submit" value="Submit">
+  </form><br>
+
+  <h3>With Multiple Targets</h3>
+  <div id="update_target" class="frame"></div><br>
+  <div id="append_target" class="frame"></div>
+
+  <form action="/multiple_targets" method="post">
+    <input type="submit" value="Submit">
+  </form><br>
+
+  <h3>With Multiple Targets Using CSS Selectors</h3>
+  <div class="flex-container">
+    <div class="frame flex-frame target_selector">Some content</div>
+    <div class="frame flex-frame target_selector">Some content</div>
+  </div>
+
+  <form action="/multiple_targets_using_query_selectors" method="post">
+    <input type="submit" value="Submit">
+  </form>
+</section>
+
+<section>
+  <%= turbo_stream_from "turbo_streams_channel" %>
+
+  <div id="turbo_streams_channel_target">hi</div>
+</section>

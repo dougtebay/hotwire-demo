@@ -15,7 +15,19 @@ Rails.application.routes.draw do
   get 'turbo-frames', to: 'turbo_frames#turbo_frames'
   get 'link-not-in-a-frame', to: 'turbo_frames#link_not_in_a_frame'
   get 'link-in-a-frame', to: 'turbo_frames#link_in_a_frame'
-  get 'link-targeting-a-different-frame', to: 'turbo_frames#link_targeting_a_different_frame'
+  get(
+    'link-in-frame-targeting-a-different-frame',
+    to: 'turbo_frames#link_in_frame_targeting_a_different_frame',
+  )
+  get 'link-not-in-frame-targeting-a-frame', to: 'turbo_frames#link_not_in_frame_targeting_a_frame'
   post 'increment-count', to: 'turbo_frames#increment_count'
   get '/eager-loaded-frame', to: 'turbo_frames#eager_loaded_frame'
+
+  get 'turbo-streams', to: 'turbo_streams#turbo_streams'
+  post 'target_action', to: 'turbo_streams#target_action'
+  post 'multiple_targets', to: 'turbo_streams#multiple_targets'
+  post(
+    'multiple_targets_using_query_selectors',
+    to: 'turbo_streams#multiple_targets_using_query_selectors',
+  )
 end

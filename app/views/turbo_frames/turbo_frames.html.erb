@@ -17,17 +17,22 @@
   </turbo-frame><br>
 
   <h3>Frame Targeting a Different Frame</h3>
-  <turbo-frame id="target_frame_for_link" class="frame">Original content</turbo-frame><br>
+  <turbo-frame id="target_frame_for_link_in_frame" class="frame">Original content</turbo-frame><br>
 
-  <turbo-frame class="frame" target="target_frame_for_link">
-    <a href="/link-targeting-a-different-frame">Link to content</a>
+  <turbo-frame class="frame" target="target_frame_for_link_in_frame">
+    <a href="/link-in-frame-targeting-a-different-frame">Link to content</a>
   </turbo-frame><br>
 
   <h3>Non-Frame Targeting a Frame</h3>
+    <turbo-frame id="target_frame_for_link_not_in_frame" class="frame">
+      Original content
+    </turbo-frame><br>
   <a
-    href="/link-targeting-a-different-frame"
-    data-turbo-frame="target_frame_for_link"
-  >Link to content</a>
+    href="/link-not-in-frame-targeting-a-frame"
+    data-turbo-frame="target_frame_for_link_not_in_frame"
+  >
+    Link to content
+  </a>
 </section>
 
 <section>
@@ -64,14 +69,20 @@
   </turbo-frame>
 </section>
 
-<section data-controller="widgets">
+<section>
   <h2>Lazy Loading Frames</h2>
-  <div class="todo-accordion" data-action="click->widgets#bar" data-widgets-target="output"></div>
-    <div style="width:100%; background-color:#475569;" id="bar" class="foo-height">
-    <div id="foo" class="foo">
-      <turbo-frame id="eager_loaded_frame" src="/eager-loaded-frame" loading="lazy">
-        <%= render 'spinner', content: 'Loading ...' %>
-      </turbo-frame>
+  <div data-controller="expandable">
+    <div
+      data-expandable-target="content"
+      data-action="click->expandable#toggle"
+      class="expandable"
+    >Expand</div>
+    <div data-expandable-target="expandableContainer" class="expandable--collapse">
+      <div data-expandable-target="expandable" class="expandable--hide">
+        <turbo-frame id="eager_loaded_frame" src="/eager-loaded-frame" loading="lazy">
+          <%= render 'spinner', content: 'Loading ...' %>
+        </turbo-frame>
+      </div>
     </div>
   </div>
 </section>

@@ -9,7 +9,10 @@ class TurboFramesController < ApplicationController
   def link_in_a_frame
   end
 
-  def link_targeting_a_different_frame
+  def link_in_frame_targeting_a_different_frame
+  end
+
+  def link_not_in_frame_targeting_a_frame
   end
 
   def increment_count

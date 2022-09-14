@@ -13,11 +13,21 @@
  *= require_tree .
  *= require_self
  */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-frame {
+  width: 47%;
+}
+
 .frame {
   border-color: #a78bfa;
   border-style: dashed;
   border-width: 1px;
-  display:  block;
+  display: block;
+  min-height: 26px;
 }
 
 .spinner-container {
@@ -50,6 +60,7 @@ h2 {
 
 h3 {
   color: #d1d5db;
+  margin-bottom: 6px;
 }
 
 h4 {
@@ -65,6 +76,10 @@ input[type=submit] {
   width: max-content;
 }
 
+input[type="submit"]:hover {
+  background-color: #6366f1 !important;
+}
+
 section {
   background-color: #1e293b;
   border-color: #3a485c;
@@ -75,7 +90,14 @@ section {
   padding: 15px 20px 20px 20px;
 }
 
-.todo-accordion {
+select {
+  border-width: 0;
+  color: #0f172a;
+  margin: 10px 5px 0 0;
+  padding: 5px 40px 5px 12px;
+}
+
+.expandable {
   cursor: pointer;
   background-color: #334155 !important;
   padding: 5px 15px 5px 15px;
@@ -83,31 +105,31 @@ section {
   width: 100%;
 }
 
-input[type="submit"].todo-button:hover {
-  background-color: #6366f1 !important;
-}
-
 a:link {
   text-decoration: underline;
 }
 
-.foo {
-  display: none;
-}
-
-.bar {
-  display: inline-block;
-  margin: 12px 0 0 20px;
-}
-
-.foo-height {
-  height: 0px;
-  transition: height 0.15s ease-out;
-  border-width: 0;
-}
-
-.bar-height {
+.expandable--expand {
   height: 50px;
   overflow: hidden;
   transition: height 0.15s ease-out;
+  width: 100%;
+  background-color: #475569;
+  padding: 12px 0 0 20px;
+}
+
+.expandable--collapse {
+  height: 0px;
+  transition: height 0.15s ease-out;
+  border-width: 0;
+  width: 100%;
+  background-color: #475569;
+}
+
+.expandable--show {
+  display: inline-block;
+}
+
+.expandable--hide {
+  display: none;
 }
