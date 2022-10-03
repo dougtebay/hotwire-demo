@@ -1,28 +1,31 @@
 class WidgetsController < ApplicationController
-  def index
-    @widgets = Widget.all
-  end
-
-  def show
-    @widget = Widget.find(params[:id])
-  end
-
-  def link
-  end
-
-  def link_frame
-  end
-
   def create
-    Widget.create!
+    Widget.create!(widget_params)
 
-    redirect_to request.referer
+    @widget = Widget.new
+
+    render turbo_stream: turbo_stream.replace(@widget, partial: 'widgets/create', locals: { widget: @widget })
   end
 
-  def turbo_drive
+  def edit
+    @widget = Widget.find(params[:id])
+
+    render turbo_stream: turbo_stream.replace(@widget, partial: 'widgets/edit', locals: { widget: @widget }) 
   end
 
-  def turbo_frames
-    @widgets = Widget.all
+  def update
+    @widget = Widget.find(params[:id])
+
+    @widget.update!(widget_params)
+  end
+
+  def destroy
+    Widget.find(params[:id]).destroy
+  end
+
+  private
+
+  def widget_params
+    params.require(:widget).permit(:name)
   end
 end

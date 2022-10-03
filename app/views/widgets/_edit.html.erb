@@ -1,0 +1,5 @@
+  <form action="/widgets/<%= widget.id %>" method="post" id=<%= dom_id(widget) %>>
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="widget[name]" value="<%= widget.name %>">
+    <input type="submit" value="Submit">
+  </form>

@@ -13,7 +13,48 @@
  *= require_tree .
  *= require_self
  */
-.flex-container {
+.delete {
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0 -6px 6px;
+  width: 23px;
+}
+
+ .expandable {
+  cursor: pointer;
+  background-color: #334155 !important;
+  padding: 5px 15px 5px 15px;
+  margin: 10px 5px 0px 0;
+  width: 100%;
+}
+
+.expandable--expand {
+  height: 50px;
+  overflow: hidden;
+  transition: height 0.15s ease-out;
+  width: 100%;
+  background-color: #475569;
+  padding: 12px 0 0 20px;
+}
+
+.expandable--collapse {
+  height: 0px;
+  transition: height 0.15s ease-out;
+  border-width: 0;
+  width: 100%;
+  background-color: #475569;
+}
+
+.expandable--show {
+  display: inline-block;
+}
+
+.expandable--hide {
+  display: none;
+}
+
+ .flex-container {
   display: flex;
   justify-content: space-between;
 }
@@ -30,9 +71,35 @@
   min-height: 26px;
 }
 
+.display-none {
+  display: none;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
 .spinner-container {
   display: flex;
   margin-top: 0;
+}
+
+.update {
+  color: #a78bfa;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 6px -3px 6px;
+  width: 20px;
+}
+
+.widget {
+  border: 0;
+  height: 34px;
+  margin-top: 10px;
+}
+
+a:link {
+  text-decoration: underline;
 }
 
 body {
@@ -60,14 +127,14 @@ h2 {
 
 h3 {
   color: #d1d5db;
-  margin-bottom: 6px;
+  padding-bottom: 6px;
 }
 
 h4 {
   color: #d1d5db;
 }
 
-input[type=submit] {
+input[type="submit"] {
   background-color: #818cf8 !important;
   border-radius: 5px;
   cursor: pointer;
@@ -78,6 +145,13 @@ input[type=submit] {
 
 input[type="submit"]:hover {
   background-color: #6366f1 !important;
+}
+
+input[type="text"] {
+  color: #0f172a;
+  border-width: 0;
+  margin: 10px 5px 0 0;
+  padding: 5px 40px 5px 12px;
 }
 
 section {
@@ -95,41 +169,4 @@ select {
   color: #0f172a;
   margin: 10px 5px 0 0;
   padding: 5px 40px 5px 12px;
-}
-
-.expandable {
-  cursor: pointer;
-  background-color: #334155 !important;
-  padding: 5px 15px 5px 15px;
-  margin: 10px 5px 0px 0;
-  width: 100%;
-}
-
-a:link {
-  text-decoration: underline;
-}
-
-.expandable--expand {
-  height: 50px;
-  overflow: hidden;
-  transition: height 0.15s ease-out;
-  width: 100%;
-  background-color: #475569;
-  padding: 12px 0 0 20px;
-}
-
-.expandable--collapse {
-  height: 0px;
-  transition: height 0.15s ease-out;
-  border-width: 0;
-  width: 100%;
-  background-color: #475569;
-}
-
-.expandable--show {
-  display: inline-block;
-}
-
-.expandable--hide {
-  display: none;
 }
