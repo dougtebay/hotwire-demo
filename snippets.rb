@@ -7,3 +7,8 @@ while
   count += 1
   sleep(0.5)
 end
+
+ActionCable.server.broadcast(
+  'widgets',
+  "<turbo-stream action='update' target='widget_1'><template>Some update</template></turbos-stream>",
+)

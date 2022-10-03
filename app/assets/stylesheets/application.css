@@ -79,9 +79,21 @@
   display: inline-block;
 }
 
+.read-more {
+  color: #a78bfa;
+  cursor: pointer;
+  font-size: 13px;
+}
+
 .spinner-container {
   display: flex;
   margin-top: 0;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .update {

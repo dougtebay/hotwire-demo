@@ -17,6 +17,8 @@ class WidgetsController < ApplicationController
     @widget = Widget.find(params[:id])
 
     @widget.update!(widget_params)
+
+    # render turbo_stream: turbo_stream.replace(@widget, partial: 'widgets/widget', locals: { widget: @widget }) 
   end
 
   def destroy

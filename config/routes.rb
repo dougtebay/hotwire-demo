@@ -30,4 +30,6 @@ Rails.application.routes.draw do
     'multiple_targets_using_query_selectors',
     to: 'turbo_streams#multiple_targets_using_query_selectors',
   )
+
+  get 'stimulus', to: 'stimulus#stimulus'
 end
