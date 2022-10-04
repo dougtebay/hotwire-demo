@@ -24,6 +24,6 @@ class TurboFramesController < ApplicationController
   end
 
   def eager_loaded_frame
-    sleep(5)
+    sleep(1)
   end
 end
