@@ -79,6 +79,33 @@
   display: inline-block;
 }
 
+.notification {
+  background-color: #b0b0b0;
+  border-radius: 5px;
+  height: max-content;
+  margin: 20px;
+  padding: 20px;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  transition: opacity 1s ease-out;
+  width: max-content;
+}
+
+.notification--hide {
+  opacity: 0;
+}
+
+.notification--show {
+  opacity: 1;
+}
+
+.notification--dismiss {
+  opacity: 0;
+  right: -100px;
+  transition: opacity 0.5s ease-out, right 0.5s ease-out;
+}
+
 .read-more {
   color: #a78bfa;
   cursor: pointer;

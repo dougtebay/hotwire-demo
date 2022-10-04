@@ -15,3 +15,17 @@
     >Read more</div>
   </div>
 </section>
+
+<section>
+  <h2>Notification Controller</h2>
+
+    <%= turbo_stream_from "notification" %>
+    <div
+      id="notification"
+      data-controller="notification"
+      data-notification-target="container"
+      class="notification notification--hide"
+    ></div>
+
+    <%= render 'widgets/create', widget: @widget %>
+</section>
