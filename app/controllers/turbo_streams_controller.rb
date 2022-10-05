@@ -5,7 +5,11 @@ class TurboStreamsController < ApplicationController
   end
 
   def target_action
-    render params[:target_action]
+    action = params[:target_action]
+
+    args = (action == 'remove' ? {} : { partial: 'action', locals: { action: action } })
+
+    render turbo_stream: turbo_stream.send(action, 'target', **args)
   end
 
   def multiple_targets

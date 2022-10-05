@@ -52,13 +52,13 @@
     <input type="submit" value="Increment">
   </form><br>
 
-  <turbo-frame id="form_in_a_frame">
-    <div class="frame" style="border-color:<%= random_color %>;">
+  <turbo-frame id="form_in_a_frame" class="frame">
       <h3>In a Frame</h3>
+      Counter: <%= @count %>
+
       <form action="/increment-count" method="post">
         <input type="submit" value="Increment">
       </form>
-    </div>
   </turbo-frame><br>
 
   <turbo-frame class="frame" target="counter">

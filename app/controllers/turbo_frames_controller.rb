@@ -19,8 +19,6 @@ class TurboFramesController < ApplicationController
     Widget.create!
 
     redirect_to request.referer
-
-    return
   end
 
   def eager_loaded_frame

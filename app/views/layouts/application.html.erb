@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <%= render 'layouts/header' %>
     <% if notice %>
@@ -21,4 +20,9 @@
     <% end %>
     <%= yield %>
   </body>
+  <script>
+    if (document.documentElement.hasAttribute('data-turbo-preview')) {
+      console.log('Turbo is displaying a preview')
+    }
+  </script>
 </html>
