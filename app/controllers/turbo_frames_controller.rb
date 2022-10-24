@@ -1,6 +1,6 @@
 class TurboFramesController < ApplicationController
   def turbo_frames
-    @count = Widget.count
+    @count = List.count
   end
 
   def link_not_in_a_frame
@@ -16,7 +16,7 @@ class TurboFramesController < ApplicationController
   end
 
   def increment_count
-    Widget.create!
+    List.create!(title: 'foo')
 
     redirect_to request.referer
   end
